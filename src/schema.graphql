@@ -1,0 +1,56 @@
+scalar Date
+scalar Time
+scalar DateTime
+
+type Usuario{
+    id: ID!
+    nome: String!
+    email: String!
+    senha: String!
+    idade: Int!
+    excluido: Boolean!
+    dividas: [Divida!]!
+}
+
+type Divida{
+    id: ID!
+    nome: String!
+    descricao: String!
+    parcelas: Int!
+    status: Boolean!
+    vencimento: DateTime
+    usuario: Usuario!
+}
+
+input UpdateDividaInput {
+  nome: String
+  descricao: String
+  parcelas: Int
+  status: Boolean
+  vencimento: DateTime
+}
+
+
+type Query{
+    allUsuarios (last: Int): [Usuario!]!
+    allDividas (last: Int): [Divida!]!
+    usuario(id: ID!): Usuario
+}
+
+type Mutation{
+    createUsuario(nome: String!, email: String!, senha: String!, idade: Int!): Usuario!
+    updateUsuario(id: ID!, nome: String!, email: String!, senha: String!, idade: Int!): Usuario!
+    deleteUsuario(id: ID!): Usuario!
+    createDivida(nome: String!, descricao: String!, parcelas: Int!, status: Boolean!, vencimento: DateTime!, usuarioId: ID!): Divida!
+    updateDivida(id: ID!, data: UpdateDividaInput): Divida!
+    deleteDivida(id: ID!): Divida! 
+}
+
+type Subscription{
+    newUsuario: Usuario!
+    updateUsuario: Usuario!
+    deleteUsuario: Usuario!
+    newDivida: Divida!
+    updateDivida: Divida!
+    deleteDivida: Divida!
+}

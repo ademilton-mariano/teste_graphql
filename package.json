@@ -1,0 +1,27 @@
+{
+  "name": "teste_graphql",
+  "version": "1.0.0",
+  "description": "Criando um servidor com dados mock, e testando com graphql",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ademilton-mariano/teste_graphql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ademilton-mariano/teste_graphql/issues"
+  },
+  "homepage": "https://github.com/ademilton-mariano/teste_graphql#readme",
+  "dependencies": {
+    "graphql": "^16.8.1",
+    "graphql-scalars": "^1.22.4",
+    "graphql-yoga": "^5.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
